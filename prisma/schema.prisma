@@ -1,0 +1,27 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model team{
+  id Int @id
+  name String
+  jabatan String
+  area String
+}
+
+model Anggota{
+  id Int @id @unique
+  name String @unique
+  jabatan String
+  area String
+
+@@map("anggota")
+}
